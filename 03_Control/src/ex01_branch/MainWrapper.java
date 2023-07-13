@@ -15,16 +15,15 @@ public class MainWrapper {
   public static void ex01() {
     
     int score = 100;
-    
-    if(score >= 60) {
+
+    if (score >= 60) {
       System.out.println("합격");
     }
-    
+
     // 중괄호는 실행문이 하나인 경우에 생략할 수 있다.
-    if(score < 60) 
+    if (score < 60)
       System.out.println("불합격");
-    
-    
+
   }
   
   /*
@@ -72,15 +71,15 @@ public class MainWrapper {
   public static void ex03() {
     
     int score = 100;
-    
-    if(score < 0 || score > 100) {
+
+    if (score < 0 || score > 100) {
       System.out.println("잘못된 점수");
-    } else if(score >= 60) {
+    } else if (score >= 60) {
       System.out.println("합격");
     } else {
       System.out.println("불합격");
     }
-    
+
   }
   
   /*
