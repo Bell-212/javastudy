@@ -91,11 +91,47 @@ public class MainWrapper {
     // 평균: 84.8점
     // 최대: 100점
     // 최소: 70점
+    String[] name = {"가가", "나나", "다다", "라라", "마마"};
+    int top = 0;    // 1등의 인덱스
+    int bottom = 0; // 5등의 인덱스
+    
     int[] score = {100, 70, 95, 83, 76};
     int total = score[0];  // 합계(평균을 구할 때 필요한 변수)
     int max = score[0];  // 최댓값
     int min = score[0];  // 최솟값
+    /*
+    total = total + score[1];   // score[0] 은 이미 위에서 포함됐으므로 제외
+    total = total + score[2];
+    total = total + score[3];
+    total = total + score[4];
     
+    if(max < score[1]) { max = score[1]; }
+    if(max < score[2]) { max = score[2]; }
+    if(max < score[3]) { max = score[3]; }
+    if(max < score[4]) { max = score[4]; }
+    
+    if(min > score[1]) { min = score[1]; }
+    if(min > score[2]) { min = score[2]; }
+    if(min > score[3]) { min = score[3]; }
+    if(min > score[4]) { min = score[4]; }
+    */
+    
+    for(int i = 1; i < score.length; i++) {
+      total = total + score[i];
+      if(max < score[i]) {
+        max = score[i];
+        top = i;
+      }
+      if(min > score[i]) {
+        min = score[i];
+        bottom = i;
+      }
+    }
+    System.out.println("평균: " + (double)total / score.length);
+    System.out.println("최댓값: " + max);
+    System.out.println("최솟값: " + min);
+    System.out.println("1등: " + name[top]);
+    System.out.println("5등: " + name[bottom]);
   }
   
   
@@ -105,8 +141,8 @@ public class MainWrapper {
     //ex02();
     //ex03();
     //ex04();
-    ex05();
-    //ex06();
+    //ex05();
+    ex06();
     
     
   }
