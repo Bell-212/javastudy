@@ -60,14 +60,23 @@ public class BankAccount {
   }
   
   //TODO transfer 메소드 만들기
- 
+  /**
+   * 이체 메소드
+   * 다른 계좌로 이체하는 메소드로 기존의 입금 메소드와 출금 메소드를 활용한다.<br>
+   * 내 계좌에서 출금을 먼저 수행하고, 출금된 금액만큼 다른계좌로 입금한다.
+   * @param acc   다른계좌
+   * @param money 이체할 금액
+   */
+  public void transfer(BankAccount acc, long money) {
+    acc.deposit(withdrawal(money));
+  }
   
   //setter
-  public void setBalance(long param) {
-    balance = param;
+  public void setBalance(long balance) {
+    this.balance = balance;
   }
-  public void setAccNO(String param) {
-    accNO = param;
+  public void setAccNO(String accNO) {
+    this.accNO = accNO;
   }
   
   //getter
