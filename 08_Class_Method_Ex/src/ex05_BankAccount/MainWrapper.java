@@ -16,6 +16,58 @@ public class MainWrapper {
     member.info();  // 고객명: 홍길동
                     // 계좌번호: 012-34-56789, 통장잔액: 50000원
                     // 개설지점: 국민은행가산지점(02-111-1111)
+  
+    
+    
+   
+    Bank bank1 = new Bank();
+    bank1.setBankName("우리은행");
+    bank1.setBankTel("02-222-2222");
+    
+    BankAccount acc1 = new BankAccount();
+    acc1.setBank(bank1);
+    acc1.setBankAcc("012-34-56789");
+    acc1.setBalance(10000);
+    
+    
+    BankMember member1 = new BankMember();
+    member1.setCustName("상철");
+    member1.setAcc(acc1);
+    
+    System.out.println("고객명: " + member1.getCustName());
+    System.out.println("계좌정보: " + member1.getAcc().getBankAcc());
+    System.out.println("통장잔액: " + member1.getAcc().getBalance());
+    System.out.println("개설지점: " + member1.getAcc().getBank().getBankName());
+    System.out.println("지점연락처: " + member1.getAcc().getBank().getBankTel());
+    
+    
+    
+    Bank bank2 = new Bank();
+    bank2.setBankName("농협은행");
+    bank2.setBankTel("02-333-3333");
+    
+    BankAccount acc2 = new BankAccount();
+    acc2.setBank(bank2);
+    acc2.setBankAcc("987-65-43210");
+    acc2.setBalance(10000);
+    
+    
+    BankMember member2 = new BankMember();
+    member2.setCustName("영숙");
+    member2.setAcc(acc2);
+    
+    System.out.println("고객명: " + member2.getCustName());
+    System.out.println("계좌정보: " + member2.getAcc().getBankAcc());
+    System.out.println("통장잔액: " + member2.getAcc().getBalance());
+    System.out.println("개설지점: " + member2.getAcc().getBank().getBankName());
+    System.out.println("지점연락처: " + member2.getAcc().getBank().getBankTel());
+    
+    
+    // 이체
+    member1.transfer(member2, 10000);
+    member1.info();
+    member2.info();
+    
     
   }
 
