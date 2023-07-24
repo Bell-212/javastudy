@@ -142,22 +142,7 @@ public class MainWrapper {
 	// 81  82  짝   84  85  짝   87  88  짝   짝
 	// 짝  짝  짝짝 짝  짝  짝짝 짝  짝  짝짝 100
 	public static void q9() {
-		boolean condition1 = false;  // 일의 자리가 3의 배수인가?
-		boolean condition2 = false;  // 십의 자리가 3의 배수인가?
-		for (int i = 1; i < 100; i++){
-	    System.out.print(i);
-	    int a = i/10;
-	    int b = i%10;
-	    if(a % 3 == 0){
-	        System.out.print("짝");
-	    }
-	    if(b % 3 == 0){
-	        System.out.print("짝");
-	    }
-	    System.out.println();
-	}
-
-	
+		
 
 		
 		
