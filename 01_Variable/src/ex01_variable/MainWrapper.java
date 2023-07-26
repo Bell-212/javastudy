@@ -66,8 +66,20 @@ public class MainWrapper {
     // reference type : 참조타입
     String name = "tom";
     System.out.println(name);
-        
     
   }
+
+  /*
+   * primitive type -> reference type
+   * ----------------------------------
+   *     boolean    |     Boolean
+   *     char       |     Character
+   *     byte       |     Byte
+   *     int        |     Integer
+   *     long       |     Long
+   *     double     |     Double
+   * ----------------------------------
+   */
+  
   
 }
