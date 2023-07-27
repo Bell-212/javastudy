@@ -9,6 +9,8 @@ public class MainWrapper {
     box1.setItem("Hello World");
     System.out.println(box1.getItem());
     
+    
+    
     // int를 저장하는 box2
     // 오직 "참조타입"만 Generic 처리해서 사용할 수 있다.
     // int의 참조타입인 Integer를 사용한다.
