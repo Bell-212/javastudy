@@ -41,20 +41,42 @@ this.day = day;
 //dayOfTheWeek 계산 코드 작성
 int totalDay = 0;  // AD 1년 1월 1일 이후로 며칠이 지났는지 저장한 변수
 
+
+// 강사님 풀이
 //year를 이용해 totalDay 누적
- if(year % 4 == 0) { // 윤년
+// 작년까지 며칠이 지났는지 계산
+for(int y = 1; y < year; y++) {
+  totalDay += 365;
+  if((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+    totalDay++;
+  }
+}
+
+/* 내풀이
+if(year % 4 == 0) { 
    totalDay += year * 366;
- } else {            // 평년
+ } else {            
    totalDay += year * 365;
  }
-
+*/
 //month를 이용해 totalDay 누적(리스트 lastDay 활용)
-  for(int i = 1, length = lastDay.size(); i < length; i++) {
+// 지난달까지 며칠이 지났는지 계산
+  if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+    lastDay.set(2, 29);
+  }
+  for(int i = 1; i < month; i++) {
+    totalDay += lastDay.get(i);
+  }
+ 
+  /* 내풀이
+   for(int i = 1, length = lastDay.size(); i < length; i++) {
+   
     if(i <= lastDay.get(month)) {
       totalDay += lastDay.get(i); 
     }
   }
- 
+   */
+  
 //day를 이용해 totalDay 누적
   totalDay += day;
   
@@ -67,7 +89,7 @@ int totalDay = 0;  // AD 1년 1월 1일 이후로 며칠이 지났는지 저장�
 //toString()
 @Override
 public String toString() {
- return  year + "년 " + month + "월 " + day + "일은 " + dayOfTheWeek +  "요일 입니다.";
+ return  year + "년 " + String.format("%02d", month) + "월 " + String.format("%02d", day) + "일은 " + dayOfTheWeek +  "요일 입니다.";
 }
 
 }
