@@ -1,5 +1,7 @@
 package ex01_Scanner;
 
+import java.util.Scanner;
+
 public class MainWrapper {
 
   // 문제1. Scanner 클래스의 next() 메소드를 이용해서 사용자로부터 문자열을 계속 입력 받는다.
@@ -10,7 +12,6 @@ public class MainWrapper {
   // 문자열 입력 >>> exit
   // 2번만에 exit가 입력되었다.
   public static void ex01() {
-    
     
     
   }
