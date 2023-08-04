@@ -48,7 +48,7 @@ public class MainWrapper {
         // 2023-08-04 15:10:30    / by zero
         // 2023-08-04 15:11:23    invalid operator ++
         // 2023-08-04 15:12:52    null
-        
+        // TODO 완성하기
         // C:/storage/log.txt
         File dir = new File("C:/storage");
         if(dir.exists() == false) {
@@ -63,9 +63,9 @@ public class MainWrapper {
           LocalDateTime dateTime = LocalDateTime.now();
           DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
           String strDateTime = dtf.format(dateTime);
-          
           String massage = e.getMessage();
           
+          bw.newLine();
           bw.write(strDateTime + "     " + massage);
           
         } catch (Exception e2) {

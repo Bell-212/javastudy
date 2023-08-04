@@ -1,5 +1,8 @@
 package ex02_String;
 
+import java.time.LocalDate;
+import java.util.Scanner;
+
 public class MainWrapper {
 
   // 문제1. 다음 주소를 아래와 같이 분석하여 분리하시오.
@@ -8,8 +11,11 @@ public class MainWrapper {
   // String param = "titleId=758037&no=112&weekday=mon";            // 물음표(?) 이후 문자열만 추출
   public static void ex01() {
     String url = "https://comic.naver.com/webtoon/detail?titleId=758037&no=112&weekday=mon";
-    String requestURI = "";
-    String param = "";
+    int question = url.indexOf("?");
+    String requestURI = url.substring(0, question);   // 0 <=  < question
+    String param = url.substring(question + 1);
+    System.out.println(requestURI);
+    System.out.println(param);
     
   }
 
@@ -19,8 +25,11 @@ public class MainWrapper {
   // String extName = "jpg";
   public static void ex02() {
     String fullName = "apple.jpg";
-    String fileName = "";
-    String extName = "";
+    int dot = fullName.lastIndexOf(".");  // 마지막 인덱스 구하기
+    String fileName = fullName.substring(0, dot);  // 0 <=  < dot
+    String extName = fullName.substring(dot + 1);
+    System.out.println(fileName);
+    System.out.println(extName);
     
   }
 
@@ -33,6 +42,22 @@ public class MainWrapper {
   public static void ex03() {
     String beforeName = "";  // 변환 전 파일명
     String afterName = "";   // 변환 후 파일명
+    Scanner sc = new Scanner(System.in);
+    System.out.println("변환 전 파일명 >>> ");
+    beforeName = sc.next();
+    int dot = beforeName.lastIndexOf(".");
+    StringBuilder sb = new StringBuilder();
+    sb.append(beforeName.substring(0, dot));    // happy
+    sb.append("_");
+    sb.append(System.currentTimeMillis());  // timestamp값
+    sb.append(beforeName.substring(dot));   //  .jpg
+    afterName = sb.toString();
+    
+    System.out.println("변환 후 파일명 >>> " + afterName);
+    sc.close();
+    
+    
+    
     
   }
   
@@ -43,6 +68,23 @@ public class MainWrapper {
   // 9살 남자입니다.
   public static void ex04() {
     String personalId = "141212-3345678";
+    LocalDate localDate = LocalDate.now();
+    int year = localDate.getYear();
+    int genderNo = Integer.parseInt(personalId.substring(7, 8));
+    int birth = 0;
+    switch(genderNo) {
+    case 1:
+    case 2:
+      birth = 1900 + Integer.parseInt(personalId.substring(0, 2));
+      break;
+    case 3:
+    case 4:
+      birth = 2000 + Integer.parseInt(personalId.substring(0, 2));
+      break;
+    }
+    int age = year - birth;
+    String[] gender = {"여자", "남자"};
+    System.out.println(age + "살 " + gender[genderNo % 2] + "입니다.");
     
   }
   
@@ -54,14 +96,30 @@ public class MainWrapper {
   //   문자열 입력 >>> 역삼역
   //   역삼역 : 거꾸로 읽어도 역삼역입니다.
   public static void ex05() {
-    
+    Scanner sc = new Scanner(System.in);
+    System.out.println("문자열 입력 >>> ");
+    String str = sc.next();
+    int length = str.length();
+    boolean isPalindrome = true;
+    for(int i = 0; i < length / 2; i++) {
+      if(str.charAt(i) != str.charAt(length - 1 - i)) {
+        isPalindrome = false;
+        break;
+      }
+    }
+    if(isPalindrome) {
+      System.out.println(str + " : 거꾸로 읽어도 " + str + "입니다.");
+    } else {
+      System.out.println(str + " : 거꾸로 읽으면 " + str + "과 다릅니다.");
+    }
+    sc.close();
   }
   
   public static void main(String[] args) {
-    ex01();
-    ex02();
-    ex03();
-    ex04();
+//    ex01();
+//    ex02();
+//    ex03();
+//    ex04();
     ex05();
   }
 
