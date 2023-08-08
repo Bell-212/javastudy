@@ -12,10 +12,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class MainWrapper {
+public class Ex02_PublicData_Air_Korea {
 
-  public static void ex01() {
-    
+
+  
+  public static void main(String[] args) {
+
     /*
      * 한국환경공단 에어코리아 대기오염정보 - 시도별 실시간 측정정보 조회
      * 1. 요청주소 : http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty
@@ -97,14 +99,8 @@ public class MainWrapper {
       }
     }
     
-    
-    
-  }
   
   
-  public static void main(String[] args) {
-    ex01();
-
   }
 
 }
