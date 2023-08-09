@@ -23,7 +23,7 @@ public class MainWrapper {
     // 접속 정보
     String url = "jdbc:oracle:thin:@localhost:1521:xe";
     String user = "GD";
-    String password = "1111";
+    String password = "";
     
     // Connection 객체 선언
     Connection con = null;
@@ -45,7 +45,7 @@ public class MainWrapper {
     
   }
   
-  
+  // 3. 접속 정보를 별도의 파일(프로퍼티 파일)에 저장 (.gitignore대비) ********
   
   public static void main(String[] args) {
     
