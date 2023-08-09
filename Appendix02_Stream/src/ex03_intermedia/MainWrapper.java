@@ -1,8 +1,11 @@
 package ex03_intermedia;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class MainWrapper {
 
@@ -59,6 +62,8 @@ public class MainWrapper {
   
   public static void ex04() {
     
+    // 변환 (값을 바꿈)
+    
     // List
     List<Person> list = Arrays.asList(
         new Person("홍자", 20),
@@ -73,6 +78,47 @@ public class MainWrapper {
         .collect(Collectors.toList());
         
     System.out.println(adult);
+  }
+  
+ public static void ex05() {
+    
+    // distinct (중복된 요소 제거)
+    
+    IntStream.of(1, 1, 2, 2, 3, 3)
+      .distinct()
+      .forEach((number) -> System.out.println(number));
+    
+    // Person 객체의 중복 검사를 위해서는 Person 클래스에 equals 메소드의 오버라이딩이 필요하다.
+    List<Person> people = Arrays.asList(
+        new Person("이정숙", 15),
+        new Person("이정숙", 15),
+        new Person("김영철", 16),
+        new Person("김영철", 16)
+    );
+    people.stream()
+      .distinct()
+      .forEach((person) -> System.out.println(person.getName() + ", " + person.getAge()));
+  }
+  
+  public static void ex06() {
+    
+    // sorted (전달된 Comparator 또는 사전 편찬 순으로 정렬된 스트림을 반환)
+    IntStream.of(3, 1, 6, 5, 2, 4)
+      .sorted()  // 오름차순 정렬
+      .forEach((number) -> System.out.println(number));
+    
+    System.out.println();
+    
+    Stream.of("google", "daum", "naver")
+      .sorted()  // 사전순으로 정렬
+      .forEach((word) -> System.out.println(word));
+    
+    System.out.println();
+    
+    Stream.of("google", "daum", "naver")
+      .sorted(Comparator.comparing((word) -> word.length()))  // 글자수로 정렬
+      .forEach((word) -> System.out.println(word));
+    
   }
   
   public static void main(String[] args) {
