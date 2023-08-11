@@ -68,7 +68,7 @@ public class MainWrapper {
     }
   }
 
-  public static void ex02() {
+  public static void  ex02() {
     
     // 바이트 기반 스트림은 원래 한글 처리가 안 된다.
     
